@@ -119,26 +119,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # ============================DATABASE SQLITE============================
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # ============================DATABASE POSTGRESQL============================
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dorixona',
-#         'USER': 'postgres',
-#         'PASSWORD': 'dorixona28',
-#         # 'HOST': 'localhost',
-#         'HOST': 'bu yerga IP joylanadi',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'landing',
+        'USER': 'root',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        # 'HOST': 'bu yerga IP joylanadi',
+        'PORT': '',
+    }
+}
 
 
 

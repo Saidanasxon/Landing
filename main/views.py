@@ -31,7 +31,7 @@ class HeaderAPIView(APIView):
         headerSR = HeaderSerializer(header, context={'lang': lang})
         about_header = AboutHeader.objects.first()
         about_headerSR = AboutHeaderSerializer(about_header, context={'lang': lang, 'request': request})
-        about = About.objects.first()
+        about = About.objects.all()
         aboutSR = AboutSerializer(about, many=True, context={'lang': lang, 'request': request})
         achievements_header = AchievementsHeader.objects.first()
         achievements_headerSR = AchievementsHeaderSerializer(achievements_header,  context={'lang': lang, 'request': request})

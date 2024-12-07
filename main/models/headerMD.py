@@ -8,6 +8,8 @@ class Header(models.Model):
     text1_en = RichTextField(verbose_name="text1 en", null=True, blank=True)
     text2_ru = RichTextField(verbose_name="text2 ru", null=True, blank=True)
     text2_en = RichTextField(verbose_name="text2 en", null=True, blank=True)
+    text3_ru = RichTextField(verbose_name="text3 ru", null=True, blank=True)
+    text3_en = RichTextField(verbose_name="text3 en", null=True, blank=True)
     image = models.ImageField(upload_to='header_images/', verbose_name="header image", null=True, blank=True)
 
     class Meta:

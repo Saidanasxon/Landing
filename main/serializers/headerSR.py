@@ -6,6 +6,7 @@ class HeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
     text1 = serializers.SerializerMethodField()
     text2 = serializers.SerializerMethodField()
+    text3 = serializers.SerializerMethodField()
     image = serializers.ImageField(read_only=True)
 
     def get_title(self, obj):
@@ -22,6 +23,6 @@ class HeaderSerializer(GeneralMixin, serializers.ModelSerializer):
 
     class Meta:
         model = Header
-        fields = ('title', 'text1', 'text2', 'image')
+        fields = ('title', 'text1', 'text2', 'text3', 'image')
 
     

@@ -10,7 +10,7 @@ class PlanHeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = PlanHeader
-        fields = ('title')
+        fields = ('title',)
 
 class StepSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()

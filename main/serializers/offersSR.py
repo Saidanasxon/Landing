@@ -10,7 +10,7 @@ class OffersHeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = OffersHeader
-        fields = ('title')
+        fields = ['title', 'id']
 
 class OfferSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()

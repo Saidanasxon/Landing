@@ -10,7 +10,7 @@ class ProjectHeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = ProjectsHeader
-        fields = ('title')
+        fields = ('title',)
 
 class ProjectSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()

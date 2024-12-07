@@ -20,7 +20,7 @@ class ProblemSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = Problem
-        fields = ('title')
+        fields = ('title',)
 
 class SolutionSerializer(GeneralMixin, serializers.ModelSerializer):
     solution = serializers.SerializerMethodField()

@@ -134,9 +134,9 @@ DATABASES = {
         'NAME': 'landing',
         'USER': 'root',
         'PASSWORD': '1',
-        'HOST': 'localhost',
-        # 'HOST': 'bu yerga IP joylanadi',
-        'PORT': '',
+        # 'HOST': 'localhost',
+        'HOST': '31.129.104.57',
+        'PORT': '5432',
     }
 }
 

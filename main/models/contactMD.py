@@ -2,7 +2,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 class ContactHeader(models.Model):
-    title_uz = RichTextField(verbose_name="header title uz")
     title_ru = RichTextField(verbose_name="header title ru", null=True, blank=True)
     title_en = RichTextField(verbose_name="header title en", null=True, blank=True)
 

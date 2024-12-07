@@ -2,7 +2,6 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 class PlanHeader(models.Model):
-    title_uz = RichTextField(verbose_name="header title uz")
     title_ru = RichTextField(verbose_name="header title ru", null=True, blank=True)
     title_en = RichTextField(verbose_name="header title en", null=True, blank=True)
 
@@ -11,9 +10,7 @@ class PlanHeader(models.Model):
 
 class Step(models.Model):
     icon = models.ImageField(verbose_name='step icon', upload_to='plan_step_icons/', null=True, blank=True)
-    title_uz = RichTextField(verbose_name="step title uz")
     title_ru = RichTextField(verbose_name="step title ru", null=True, blank=True)
     title_en = RichTextField(verbose_name="step title en", null=True, blank=True)
-    description_uz = RichTextField(verbose_name="step description uz")
     description_ru = RichTextField(verbose_name="step description ru", null=True, blank=True)
     description_en = RichTextField(verbose_name="step description en", null=True, blank=True)

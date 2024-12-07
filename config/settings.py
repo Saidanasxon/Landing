@@ -136,7 +136,7 @@ DATABASES = {
         'PASSWORD': '1',
         'HOST': 'localhost',
         # 'HOST': 'bu yerga IP joylanadi',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 

@@ -15,7 +15,6 @@ class AboutHeaderSerializer(GeneralMixin, serializers.ModelSerializer):
 class AboutSerializer(GeneralMixin, serializers.ModelSerializer):
     text1 = serializers.SerializerMethodField()
     text2 = serializers.SerializerMethodField()
-    image = serializers.ImageField(use_url=True)
     
     def get_text1(self, obj):
         return self.get_translated_field(obj, 'text1')

@@ -19,6 +19,6 @@ class FooterSerializer(GeneralMixin, serializers.ModelSerializer):
 class OurSocialMediaSerializer(serializers.ModelSerializer, GeneralMixin):
     class Meta:
         model = OurSocialMedia
-        fields = ['id', 'name', 'icon', 'url']
+        fields = ['name', 'icon', 'url']
 
 

@@ -14,7 +14,7 @@ class Problem(models.Model):
     title_en = RichTextField(verbose_name="muammo eng", null=True, blank=True)
 
     def __str__(self):
-        return self.title_uz
+        return self.title_en
     
 class Solution(models.Model):
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE, verbose_name="problem", related_name="solutions")

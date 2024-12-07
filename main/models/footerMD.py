@@ -12,7 +12,7 @@ class Footer(models.Model):
         verbose_name_plural = "Footerlar"
 
     def __str__(self):
-        return self.copyright_text_uz
+        return self.copyright_text_en
 
 class OurSocialMedia(models.Model):
     name = models.CharField(max_length=255, verbose_name='Ijtimoiy tarmoq nomi',null=True, blank=True)

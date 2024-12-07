@@ -10,7 +10,7 @@ class ServicesHeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = ServicesHeader
-        fields = ('title')
+        fields = ('title',)
 
 class ServiceSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()

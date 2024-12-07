@@ -2,10 +2,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 class Footer(models.Model):
-    description_uz = RichTextField(verbose_name='Footer matni uz')
     description_ru = RichTextField(verbose_name='Footer matni ru', null=True, blank=True)
     description_en = RichTextField(verbose_name='Footer matni en', null=True, blank=True)
-    copyright_text_uz = RichTextField(verbose_name='Copyrigth text uz')
     copyright_text_ru = RichTextField(verbose_name='Copyrigth text ru', null=True, blank=True)
     copyright_text_en = RichTextField(verbose_name='Copyrigth text en', null=True, blank=True)
 

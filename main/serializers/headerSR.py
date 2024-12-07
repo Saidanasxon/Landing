@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from main.serializers.translate_function import GeneralMixin
-from ..models.headerMD import Header 
+from ..models.headerMD import Header
 
 class HeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     title = serializers.SerializerMethodField()
@@ -9,15 +9,19 @@ class HeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     image = serializers.ImageField(read_only=True)
 
     def get_title(self, obj):
-        return self.get_translated_field(obj, 'title')
-    
+        """Get translated title based on language context."""
+        return self.get_translated_field(obj, 'title') or "Default Title"
+
     def get_text1(self, obj):
-        return self.get_translated_field(obj, 'text1')
-    
+        """Get translated text1 based on language context."""
+        return self.get_translated_field(obj, 'text1') or "Default Text1"
+
     def get_text2(self, obj):
-        return self.get_translated_field(obj, 'text2')
-    
+        """Get translated text2 based on language context."""
+        return self.get_translated_field(obj, 'text2') or "Default Text2"
+
     class Meta:
         model = Header
         fields = ('title', 'text1', 'text2', 'image')
+
     

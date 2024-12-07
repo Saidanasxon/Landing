@@ -27,77 +27,56 @@ from .serializers.servicesSR import ServiceSerializer, ServicesHeaderSerializer
 
 class HeaderAPIView(APIView):
     def get(self, request, lang=None):
-        header = Header.objects.first()
-        headerSR = HeaderSerializer(header, context={'lang': lang, 'request': request})
-        about_header = AboutHeader.objects.first()
-        about_headerSR = AboutHeaderSerializer(about_header, context={'lang': lang, 'request': request})
-        about = About.objects.all()
-        aboutSR = AboutSerializer(about, many=True, context={'lang': lang, 'request': request})
-        achievements_header = AchievementsHeader.objects.first()
-        achievements_headerSR = AchievementsHeaderSerializer(achievements_header,  context={'lang': lang, 'request': request})
-        achievements = Achievement.objects.all()
-        achievementsSR = AchievementSerializer(achievements, many=True, context={'lang': lang, 'request': request})
-        contact_header = ContactHeader.objects.first()
-        contact_headerSR = ContactHeaderSerializer(contact_header, context={'lang': lang, 'request': request})
-        footer = Footer.objects.first()
-        footerSR = FooterSerializer(footer, context={'lang': lang, 'request': request})
-        social_media = OurSocialMedia.objects.all()
-        social_mediaSR = OurSocialMediaSerializer(social_media, many=True, context={'lang': lang, 'request': request})
-        offers_header = OffersHeader.objects.first()
-        offers = Offer.objects.all()
-        offers_headerSR = OffersHeaderSerializer(offers_header, context={'lang': lang, 'request': request})
-        offers_serializer = OfferSerializer(offers, many=True, context={'lang': lang, 'request': request})
-        plan_header = PlanHeader.objects.first()
-        steps = Step.objects.all()
-        plan_headerSR = PlanHeaderSerializer(plan_header, many=True, context={'lang': lang, 'request': request})
-        stepsSR = StepSerializer(steps, many=True, context={'lang': lang, 'request': request})
-        projects = Project.objects.all()
-        projects_header = ProjectsHeader.objects.first()
-        projectsSR = ProjectSerializer(projects, many=True, context={'lang': lang, 'request': request})
-        projects_headerSR = ProjectHeaderSerializer(projects_header, many=True, context={'lang': lang, 'request': request})
-        ps_header = PSHeader.objects.all()
-        problems = Problem.objects.all()
-        solutions = Solution.objects.all()
-        ps_headerSr = PSHeaderSerializer(ps_header, many=True, context={'lang': lang, 'request': request})
-        problemsSR = ProblemSerializer(problems, many=True, context={'lang': lang, 'request': request})
-        solutionsSR = SolutionSerializer(solutions, many=True, context={'lang': lang, 'request': request})
-        services_header = ServicesHeader.objects.first()
-        services = Service.objects.all()
-        services_headerSR = ServicesHeaderSerializer(services_header, many=True, context={'lang': lang, 'request': request})
-        servicesSR = ServiceSerializer(services, many=True, context={'lang': lang, 'request': request})
-
-
+        context = {'lang': lang, 'request': request}
         
+        headerSR = HeaderSerializer(Header.objects.first(), context=context) if Header.objects.exists() else None
+        about_headerSR = AboutHeaderSerializer(AboutHeader.objects.first(), context=context) if AboutHeader.objects.exists() else None
+        aboutSR = AboutSerializer(About.objects.all(), many=True, context=context)
+        achievements_headerSR = AchievementsHeaderSerializer(AchievementsHeader.objects.first(), context=context) if AchievementsHeader.objects.exists() else None
+        achievementsSR = AchievementSerializer(Achievement.objects.all(), many=True, context=context)
+        contact_headerSR = ContactHeaderSerializer(ContactHeader.objects.first(), context=context) if ContactHeader.objects.exists() else None
+        footerSR = FooterSerializer(Footer.objects.first(), context=context) if Footer.objects.exists() else None
+        social_mediaSR = OurSocialMediaSerializer(OurSocialMedia.objects.all(), many=True, context=context)
+        offers_headerSR = OffersHeaderSerializer(OffersHeader.objects.first(), context=context) if OffersHeader.objects.exists() else None
+        offers_serializer = OfferSerializer(Offer.objects.all(), many=True, context=context)
+        plan_headerSR = PlanHeaderSerializer(PlanHeader.objects.first(), context=context) if PlanHeader.objects.exists() else None
+        stepsSR = StepSerializer(Step.objects.all(), many=True, context=context)
+        projects_headerSR = ProjectHeaderSerializer(ProjectsHeader.objects.first(), context=context) if ProjectsHeader.objects.exists() else None
+        projectsSR = ProjectSerializer(Project.objects.all(), many=True, context=context)
+        ps_headerSr = PSHeaderSerializer(PSHeader.objects.all(), many=True, context=context)
+        problemsSR = ProblemSerializer(Problem.objects.all(), many=True, context=context)
+        solutionsSR = SolutionSerializer(Solution.objects.all(), many=True, context=context)
+        services_headerSR = ServicesHeaderSerializer(ServicesHeader.objects.first(), context=context) if ServicesHeader.objects.exists() else None
+        servicesSR = ServiceSerializer(Service.objects.all(), many=True, context=context)
+
         data = {
-            'slider': headerSR.data,
-            'about_header': about_headerSR.data,
+            'slider': headerSR.data if headerSR else None,
+            'about_header': about_headerSR.data if about_headerSR else None,
             'about': aboutSR.data,
-            'achievements_header': achievements_headerSR.data,
+            'achievements_header': achievements_headerSR.data if achievements_headerSR else None,
             'achievements': achievementsSR.data,
-            'contact_header': contact_headerSR.data,
-            'footer': footerSR.data,
+            'contact_header': contact_headerSR.data if contact_headerSR else None,
+            'footer': footerSR.data if footerSR else None,
             'social_media': social_mediaSR.data,
-            'offers_header': offers_headerSR.data,
+            'offers_header': offers_headerSR.data if offers_headerSR else None,
             'offers': offers_serializer.data,
-            'plan_header': plan_headerSR.data,
+            'plan_header': plan_headerSR.data if plan_headerSR else None,
             'steps': stepsSR.data,
-            'projects_header': projects_headerSR.data,
+            'projects_header': projects_headerSR.data if projects_headerSR else None,
             'projects': projectsSR.data,
             'ps_header': ps_headerSr.data,
             'problems': problemsSR.data,
             'solutions': solutionsSR.data,
-            'services_header': services_headerSR.data,
+            'services_header': services_headerSR.data if services_headerSR else None,
             'services': servicesSR.data,
-
-
         }
-        
+
         response_data = {
             'success': True,
             'message': 'Successfully',
             'data': data,
         }
-        
+
         return Response(response_data)
 
 

@@ -3,6 +3,6 @@ from .views import HeaderAPIView, SendMessageView
 
 
 urlpatterns = [
-    path('home/', HeaderAPIView.as_view(), name='home'),
+    path('home/<str:lang>', HeaderAPIView.as_view(), name='home'),
     path('send-message/', SendMessageView.as_view(), name='send-message'),
 ]

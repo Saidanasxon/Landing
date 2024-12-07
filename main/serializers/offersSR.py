@@ -24,4 +24,4 @@ class OfferSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = Offer
-        fields = ('title', 'description', 'icon')
+        fields = ['title', 'description', 'icon']

@@ -10,7 +10,7 @@ class HeaderSerializer(GeneralMixin, serializers.ModelSerializer):
     
     class Meta:
         model = Header
-        fields = ('id', 'title', 'text1', 'text2', 'image')
+        fields = ('title', 'text1', 'text2', 'image')
 
     def get_title(self, obj):
         return self.get_translated_field(obj, 'title')

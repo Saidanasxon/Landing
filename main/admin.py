@@ -12,12 +12,12 @@ from .models.servicesMD import ServicesHeader, Service
 from .models.footerMD import Footer, OurSocialMedia
 
 # Header
-admin.site.register(Header, list_display= ['title_uz', 'title_ru', 'title_en', 'text1_uz', 'text1_ru', 'text1_en', 'text2_uz', 'text2_ru', 'text2_en', 'image'])
+admin.site.register(Header)
 
 # About
-admin.site.register(AboutHeader, list_display= ['title_uz', 'title_ru', 'title_en'])
-admin.site.register(About, list_display= ['text1_uz', 'text1_ru', 'text1_en', 'text2_uz', 'text2_ru', 'text2_en', 'image'])
-admin.site.register(Faq, list_display=['question_uz', 'question_ru', 'question_en', 'answer_uz', 'answer_ru', 'answer_en'])
+admin.site.register(AboutHeader)
+admin.site.register(About)
+admin.site.register(Faq)
 
 # Achievment
 admin.site.register(AchievementsHeader)

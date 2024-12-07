@@ -45,7 +45,7 @@ class HeaderAPIView(APIView):
         social_mediaSR = OurSocialMediaSerializer(social_media, many=True, context={'lang': lang, 'request': request})
         offers_header = OffersHeader.objects.first()
         offers = Offer.objects.all()
-        offers_headerSR = OffersHeaderSerializer(offers_header, many=True,  context={'lang': lang, 'request': request})
+        offers_headerSR = OffersHeaderSerializer(offers_header, context={'lang': lang, 'request': request})
         offers_serializer = OfferSerializer(offers, many=True, context={'lang': lang, 'request': request})
         plan_header = PlanHeader.objects.first()
         steps = Step.objects.all()

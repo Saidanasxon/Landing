@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models.headerMD import Header
 from .serializers.headerSR import HeaderSerializer
-from .models.aboutMD import AboutHeader, About
-from .serializers.aboutSR import AboutHeaderSerializer, AboutSerializer
+from .models.aboutMD import AboutHeader, About, Faq
+from .serializers.aboutSR import AboutHeaderSerializer, AboutSerializer, FaqSerializer
 from .models.achievmentsMD import AchievementsHeader, Achievement
 from .serializers.achievmentsSR import AchievementsHeaderSerializer, AchievementSerializer
 from .models.contactMD import ContactHeader, SendMessage
@@ -32,6 +32,7 @@ class HeaderAPIView(APIView):
         headerSR = HeaderSerializer(Header.objects.first(), context=context) if Header.objects.exists() else None
         about_headerSR = AboutHeaderSerializer(AboutHeader.objects.first(), context=context) if AboutHeader.objects.exists() else None
         aboutSR = AboutSerializer(About.objects.all(), many=True, context=context)
+        faqSR = FaqSerializer(Faq.objects.all(), many=True, context=context)
         achievements_headerSR = AchievementsHeaderSerializer(AchievementsHeader.objects.first(), context=context) if AchievementsHeader.objects.exists() else None
         achievementsSR = AchievementSerializer(Achievement.objects.all(), many=True, context=context)
         contact_headerSR = ContactHeaderSerializer(ContactHeader.objects.first(), context=context) if ContactHeader.objects.exists() else None
@@ -53,6 +54,7 @@ class HeaderAPIView(APIView):
             'slider': headerSR.data if headerSR else None,
             'about_header': about_headerSR.data if about_headerSR else None,
             'about': aboutSR.data,
+            'faq': faqSR.data,
             'achievements_header': achievements_headerSR.data if achievements_headerSR else None,
             'achievements': achievementsSR.data,
             'contact_header': contact_headerSR.data if contact_headerSR else None,
